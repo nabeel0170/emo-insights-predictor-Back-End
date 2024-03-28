@@ -1,5 +1,28 @@
 {
   "dependencies": {
-    "express": "^4.19.2"
-  }
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "nodemon": "^3.1.0"
+  },
+  "name": "emo-insights-predictor-back-end",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nabeel0170/emo-insights-predictor-back-end.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nabeel0170/emo-insights-predictor-back-end/issues"
+  },
+  "homepage": "https://github.com/nabeel0170/emo-insights-predictor-back-end#readme"
 }
