@@ -1,8 +1,8 @@
-const express = require('express');
+import express from 'express';
 const app = express();
 const PORT = process.env.PORT || 8000; // Set port from environment variable or default to 3000
-const cors = require ('cors')
-const userRoutes = require('./api/routes/userRoutes');
+import cors from 'cors';
+import userRoutes from './api/routes/userRoutes.js';
 
 // Middleware
 app.use(cors()); 
