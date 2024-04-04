@@ -9,3 +9,12 @@ export const registerUser = async (userData) => {
         throw new Error("Failed to register user");
     }
 }
+export const loginUser = async (userData) => {
+    try {
+        await userModel.loginUser(userData);
+        return {success: true, message: "User  logged in successfully"};
+    } catch (error) {
+        console.log("Error in logging User : ", error);
+        throw new Error("Failed to log in user");
+    }
+}
