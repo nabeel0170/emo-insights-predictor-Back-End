@@ -1,17 +1,20 @@
-import express from 'express';
+import express from "express";
 const app = express();
 const PORT = process.env.PORT || 8000; // Set port from environment variable or default to 3000
-import cors from 'cors';
-import userRoutes from './api/routes/userRoutes.js';
+import cors from "cors";
+import userRoutes from "./api/routes/userRoutes.js";
+import { dbCon } from "./config/dbConnection.js";
+//configs
+dbCon();
 
 // Middleware
-app.use(cors()); 
+app.use(cors());
 app.use(express.json()); // Parse JSON request bodies
-app.use('/api/users', userRoutes);
+app.use("/api/users", userRoutes);
 
 // Routes
-app.get('/hello', (req, res) => {
-  res.send('Hello, world!');
+app.get("/hello", (req, res) => {
+  res.send("Hello, world!");
 });
 
 // Start the server
