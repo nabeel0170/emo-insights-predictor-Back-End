@@ -14,7 +14,7 @@ export const loginUser = async (userData) => {
     await userModel.loginUser(userData);
     return { success: true, message: "User  logged in successfully" };
   } catch (error) {
-    console.log("Error in logging User : ", error);
-    throw new Error("Failed to log in user");
+    console.error("Error in loginUser service:", error);
+    throw error;
   }
 };

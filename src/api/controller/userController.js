@@ -27,11 +27,16 @@ export const postLoginUser = async (req, res) => {
       email: email,
       password: password,
     };
-
     const result = await loginUser(userBody);
     res.status(200).json(result);
   } catch (err) {
     console.error("Error logging user:", err);
-    res.status(500).json({ error: "Failed to log in user" });
+
+    // Return the error message as a response with appropriate status code
+    if (err.message === "User not found" || err.message === "Invalid password") {
+      return res.status(401).json({ message: err.message });
+    } else {
+      return res.status(500).json({ message: "Internal server error", error: err.message });
+    }
   }
 };
