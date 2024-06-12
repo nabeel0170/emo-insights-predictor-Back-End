@@ -4,4 +4,4 @@
 /build
 /dist
 .env
-config/dbConnection.js
+/config/dbConnection.js
