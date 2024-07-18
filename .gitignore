@@ -4,4 +4,7 @@
 /build
 /dist
 .env
-config/dbConnection.js
+src/config/dbConnection.js
+
+src/utils/jwtAuth.js
+

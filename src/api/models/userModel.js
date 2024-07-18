@@ -27,7 +27,7 @@ const userModel = {
   },
 
   loginUser: async (userData) => {
-    const email = userData.email;
+    const email = userData.email.toLowerCase();
     const password = userData.password;
 
     try {
@@ -41,8 +41,14 @@ const userModel = {
       if (!passwordMatch) {
         throw new Error("Invalid password");
       }
+const id = user._id;
+const name = user.name;
+      return{
+        success:true,
+        userName: name,
+        userId: id
 
-      return true;
+      };
     } catch (error) {
       throw error;
     }

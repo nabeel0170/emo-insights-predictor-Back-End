@@ -11,8 +11,8 @@ export const registerUser = async (userData) => {
 };
 export const loginUser = async (userData) => {
   try {
-    await userModel.loginUser(userData);
-    return { success: true, message: "User  logged in successfully" };
+  const result = await userModel.loginUser(userData);
+    return(result);
   } catch (error) {
     console.error("Error in loginUser service:", error);
     throw error;
