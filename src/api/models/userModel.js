@@ -53,6 +53,21 @@ const name = user.name;
       throw error;
     }
   },
+  resetPassword: async (userId,newPassword) => {
+    try {
+      await userDataModel.updateOne(
+        { _id: userId }, 
+        { $set: { password: newPassword } }
+      );
+      return{
+        success:true,
+        message:"password reset successful"
+      }
+    } catch (error) {
+      console.error("Error resetting password:", error);
+      throw error;
+    }
+  },
 };
 
 export default userModel;

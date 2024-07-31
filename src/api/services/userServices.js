@@ -18,3 +18,12 @@ export const loginUser = async (userData) => {
     throw error;
   }
 };
+export const resetUserPassword = async (userId,newPassword) => {
+  try {
+  const result = await userModel.resetPassword(userId,newPassword);
+    return(result);
+  } catch (error) {
+    console.error("Error in loginUser service:", error);
+    throw error;
+  }
+};

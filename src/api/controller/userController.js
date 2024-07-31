@@ -2,6 +2,7 @@ import bcrypt from "bcrypt";
 import { registerUser } from "../services/userServices.js";
 import { loginUser } from "../services/userServices.js";
 import { generateAccessToken } from "../utils/jwtAuth.js";
+import { resetUserPassword } from "../services/userServices.js";
 
 export const postRegisterUser = async (req, res) => {
   try {
@@ -49,5 +50,16 @@ export const postLoginUser = async (req, res) => {
         .status(500)
         .json({ message: "Internal server error", error: err.message });
     }
+  }
+};
+
+export const resetPassword = async (req, res) => {
+  const userId = req.body._id;
+  const newPassword = req.body.password;
+  try {
+    const result = await resetUserPassword(userId, newPassword);
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(400).json(error);
   }
 };
